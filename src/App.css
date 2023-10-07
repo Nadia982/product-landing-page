@@ -3,19 +3,31 @@
 * {
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
 }
 
-body {
-  font-family: "Poppins", sans-serif; 
-  width: 90vw; 
-  max-width: 1200px;
+:root {
+  --red: #d01c28;
+  --gray: #2e2e2e;
+}
+
+.container {
+  font-family: "Poppins", sans-serif;  
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 95vh;
 }
 
 nav {
   display: flex;
-  
-  justify-content:space-between;
+  justify-content: space-between;
   align-items: center;
+  height: 4em;
+  width: 95vw; 
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 ul {
@@ -25,7 +37,6 @@ ul {
 
 ul li {
   list-style-type: none;
-  margin: 0;
 }
 
 ul li a {
@@ -33,28 +44,125 @@ ul li a {
   text-decoration: none;
 }
 
+ul li a:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.5em;
+}
+
+.hero {
+  display: flex;
+  gap: 2em;
+}
+
+.hero-button-container{
+  display: flex;
+  gap: 1em;
+  margin-top: 2em;
+}
+
+.hero-button-container .secondary-btn:hover{
+  color: white;
+}
+
+.hero-button-container button:hover, nav button:hover {
+background-color: var(--gray);
+}
+
 button {
+  all: unset;
   border-radius: 0.5em;
-  padding: 1em;
+  padding: 0.5em 1em;
+  background: var(--red);
+  color: white;
+  font-weight: 500;
   font-family: "Poppins", sans-serif;
+  cursor: pointer;
 }
 
 main{
   display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80vw;
+  max-width: 1000px;
+  margin: 2em auto;
+}
+
+main h1 {
+  line-height: 0.9;
+  font-weight: 600;
+  font-size: 4em;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+
+main img {
+  object-fit: cover;
+  width: 300px;
+  height: 300px;
 }
 
 footer {
+  font-size: .7rem;
   font-weight: 400;
   color: #000;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: .2em;
+  width: 100vw;
 }
 
 a, a:visited {
   color: #000;
 text-decoration: none;
-  /* display: block; */
+}
+
+.secondary-btn {
+  background-color: transparent;
+  color: var(--gray);
+  border: 1px solid var(--gray);
+}
+
+@media screen and (max-width: 768px){
+  main h1 {
+    font-size: 3rem;
+  }
+
+  .hero-content {
+    max-width: 250px;
+  }
+
+  .hero-image {
+    max-width: 300px;
+    scale: 0.8;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  nav {
+    height: 3.5em;
+  }
+
+ .hero {
+  width: 300px;
+  flex-direction: column;
+  gap: 2em;
+ }
+
+ .logo {
+  display: none;
+ }
+
+ main h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+ }
+
+.hero-button-container {
+  margin-top: 1em;
+} 
+ ul li a {
+  padding: 0.4em;
+}
 }
